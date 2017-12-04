@@ -111,7 +111,7 @@
             "fontHoverColor": "#fff",
             "fontActiveColor": "#222"
           },
-          "items": "<li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">OVERVIEW</a></li><li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">FEATURES</a></li><li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">HELP</a></li><li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">DOWNLOAD</a></li><li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">Tutorials</a></li>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"index.html\">ANASAYFA</a></li>",
           "logo": {
             "image": {
               "active": true,
@@ -169,9 +169,9 @@
               "loop": false
             }
           },
-          "title": "<br>&nbsp;Website Builder",
+          "title": "<br>AydınAhşap",
           "text": "Full-width intro with parallax background and media on the right side. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, totam sit! Ut perspiciatis sint minima, a, consequatur maxime minus neque voluptatem laborum distinctio amet. Ea deleniti sed, commodi aperiam! Harum excepturi ipsa temporibus sit, natus illum expedita officiis doloribus a aspernatur",
-          "buttons": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-primary\" role=\"button\">learn more</a>",
+          "buttons": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-primary\" role=\"button\">Tıklayınız</a>",
           "alias": "spacem/components",
           "_tags": [
             "Theme"
