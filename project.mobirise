@@ -29,7 +29,11 @@
     "scrollAnimation": "",
     "cookiesAlert": "",
     "google-analytics": "",
-    "siteUrl": "undefined"
+    "siteUrl": "http://aydinahsap.com.tr",
+    "sitemapSwitcherAuto": "on",
+    "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
+    "robotsSwitcher": "",
+    "sitemapSwitcher": "on"
   },
   "pages": {
     "index.html": {
@@ -122,8 +126,8 @@
               "title": "Aydınahşap"
             }
           },
-          "icons": "<a data-app-btn=\"true\" title=\"Twitter\" target=\"_blank\" href=\"https://twitter.com/mobirise\"><i class=\"icon-twitter\"></i></a> <a data-app-btn=\"true\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\"><i class=\"icon-facebook\"></i></a> <a data-app-btn=\"true\" title=\"Google+\" target=\"_blank\" href=\"https://plus.google.com/u/0/+Mobirise/posts\"><i class=\"icon-googleplus\"></i></a> <a data-app-btn=\"true\" title=\"Youtube\" target=\"_blank\" href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\"><i class=\"icon-dribbble\"></i></a> ",
-          "contacts": "<a data-app-btn=\"true\" href=\"tel:+123 (456) 7890 123\"><span class=\"fa fa-phone mbr-iconfont mbr-iconfont-btn\"></span> +123 (456) 7890 123</a><a data-app-btn=\"true\" href=\"mailto:sample@sample.com\"><span class=\"fa fa-envelope-o mbr-iconfont mbr-iconfont-btn\"></span> sample@sample.com</a>",
+          "icons": "<a data-app-btn=\"true\" title=\"Twitter\" target=\"_blank\" href=\"https://twitter.com/mobirise\" data-toolbar=\"-mbrFonts,-mbrFontSize\" class=\"\"><i class=\"icon-twitter\"></i></a> <a data-app-btn=\"true\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" data-toolbar=\"-mbrFonts,-mbrFontSize\" class=\"\"><i class=\"icon-facebook\"></i></a> <a data-app-btn=\"true\" title=\"Google+\" target=\"_blank\" href=\"https://plus.google.com/u/0/+Mobirise/posts\"><i class=\"icon-googleplus\"></i></a> <a data-app-btn=\"true\" title=\"Youtube\" target=\"_blank\" href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\"><i class=\"icon-dribbble\"></i></a> ",
+          "contacts": "<a data-app-btn=\"true\" href=\"tel:+123 (456) 7890 123\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\" class=\"\"><span class=\"fa fa-phone mbr-iconfont mbr-iconfont-btn\"></span> +90 212 721 74 97</a><a data-app-btn=\"true\" href=\"mailto:sample@sample.com\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\" class=\"\"><span class=\"fa fa-envelope-o mbr-iconfont mbr-iconfont-btn\"></span>&nbsp;info@aydinahsap.com.tr</a>",
           "brand": "<a class=\"navbar-caption\" data-app-btn=\"true\" data-app-selector=\".navbar-caption\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Brand Name\">MOBIRISE</a>",
           "alias": "spacem/components",
           "_tags": [
@@ -162,22 +166,27 @@
             },
             "video": {
               "active": true,
-              "src": "https://www.youtube.com/watch?v=axMabrSDrI8",
+              "src": "youtube.com/watch?v=773RAZOq-ko",
               "class": "mbr-figure__img",
               "aspectratio": "16:9",
               "autoplay": false,
               "loop": false
             }
           },
-          "title": "<br>AydınAhşap",
-          "text": "Full-width intro with parallax background and media on the right side. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, totam sit! Ut perspiciatis sint minima, a, consequatur maxime minus neque voluptatem laborum distinctio amet. Ea deleniti sed, commodi aperiam! Harum excepturi ipsa temporibus sit, natus illum expedita officiis doloribus a aspernatur",
+          "title": "<br>AydınAh<span style=\"font-weight: normal;\">ş</span>ap",
+          "text": "Ağacı sanata dönüştürüyoruz.<br>Mutfak, Banyo Dolapları, Portmanto, Sürgülü Dolap, Amerikan Kapı. Birinci sınıf kalite ile ihtiyaçlarınız doğrultusunda profesyonelce imal edilmektedir. Yüksek adetli taleplerden, özel butik ihtiyaçlara kadar çözümlerimizle yanınızdayız.",
           "buttons": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-primary\" role=\"button\">Tıklayınız</a>",
           "alias": "spacem/components",
           "_tags": [
             "Theme"
           ],
           "_name": "header3",
-          "_anchor": "header3-4"
+          "_anchor": "header3-4",
+          "_styles": {
+            "SPAN": {
+              "font-size": "100px"
+            }
+          }
         },
         {
           "_params": {
@@ -204,24 +213,24 @@
                 "showText": true,
                 "showTitle": true,
                 "image": "@THEME_PATH@/components/_images/header1.jpg",
-                "title": "Alex Mayer",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates iusto non tenetur recusandae, laudantium omnis ratione natus minima, veniam exercitationem officia, ad illo obcaecati nemo."
+                "title": "Ercan AYDIN",
+                "text": "Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir."
               },
               {
                 "active": false,
                 "showText": true,
                 "showTitle": true,
                 "image": "@THEME_PATH@/components/_images/header1.jpg",
-                "title": "Maks Heard",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores vitae, quasi dignissimos quo ipsam non, aliquam cupiditate facilis similique laboriosam optio mollitia sunt sed minima."
+                "title": "Ercan AYDIN",
+                "text": "Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir."
               },
               {
                 "active": false,
                 "showText": true,
                 "showTitle": true,
                 "image": "@THEME_PATH@/components/_images/header1.jpg",
-                "title": "Elsa McGregor",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam mollitia incidunt vero cupiditate obcaecati iusto tempora unde! Numquam officiis, quae adipisci quam laudantium nulla modi."
+                "title": "Ercan AYDIN",
+                "text": "Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir."
               }
             ]
           },
@@ -231,14 +240,21 @@
             "Theme"
           ],
           "_name": "testimonials2",
-          "_anchor": "testimonials2-3"
+          "_anchor": "testimonials2-3",
+          "_styles": {
+            "P": {
+              "font-family": "'Slabo 27px', serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Slabo+27px"
+            }
+          }
         },
         {
           "_params": {
             "googleMap": {
-              "placeId": "ChIJn6wOs6lZwokRLKy1iqRcoKw",
-              "address": "350 5th Ave, New York, NY 10118",
-              "state": "ok"
+              "address": "gümüşyaka silivri\n",
+              "placeId": "ChIJ7ZrRisEbtRQRS-C1yqRWzZY",
+              "state": "ok",
+              "stateDetails": ""
             }
           },
           "alias": "spacem/components",
@@ -268,14 +284,17 @@
           },
           "media": {
             "image": {
-              "src": "@PROJECT_PATH@/assets/images/logo-white.png",
-              "active": true
+              "src": "@PROJECT_PATH@/assets/images/onlinelogomaker-120417-1611-5596-132x128.png",
+              "active": true,
+              "link": "",
+              "alt": "",
+              "title": ""
             }
           },
-          "adress": "350 5th Ave, New York, NY 10118",
-          "phone": "<a href=\"tel:+12 (3) 456 7890 123\" class=\"adr-link\"><b>Phone:</b> +12 (3) 456 7890 123</a>",
-          "email": "<a href=\"mailto:sample@sample.com\" class=\"adr-link\"><b>Email:</b> sample@sample.com</a>",
-          "titleNews": "our news",
+          "adress": "Gümüşyaka Merkez<br>Silivri-İSTANBUL",
+          "phone": "<a href=\"tel:+12 (3) 456 7890 123\" class=\"adr-link\"><b>Phone:</b> </a>&nbsp; &nbsp; 0 212 721 74 97",
+          "email": "<a href=\"mailto:sample@sample.com\" class=\"adr-link\"><b>Email:</b> </a>&nbsp; &nbsp;info@aydinahsap.com.tr",
+          "titleNews": "HABERLER",
           "mediaNews1": {
             "image": {
               "class": "resp-img",
@@ -283,7 +302,7 @@
               "active": true
             }
           },
-          "textNews1": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">15/05/16</span>",
+          "textNews1": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">15/05/17</span>",
           "mediaNews2": {
             "image": {
               "class": "resp-img",
@@ -291,13 +310,13 @@
               "active": true
             }
           },
-          "textNews2": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">15/05/16</span>",
-          "titleTweet": "lastest links",
+          "textNews2": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">13/01/17</span>",
+          "titleTweet": "REFERANSLARIMIZDAN",
           "tweet1": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
           "tweet2": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
           "tweet3": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
           "tweet4": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
-          "titleInst": "Images",
+          "titleInst": "FOTOĞRAFLAr",
           "mediaInst1": {
             "image": {
               "class": "resp-img",
@@ -340,13 +359,22 @@
               "active": true
             }
           },
-          "copyright": "2016 All rights reserved. Development by <a href=\"https://mobirise.com\">Mobirise</a>",
+          "copyright": "2017 Tüm hakları saklıdır. Tasarım ve kodlama &nbsp;<a href=\"http://semtasoft.com\" target=\"_blank\" class=\"text-warning\">SEMTASOFT</a>",
           "alias": "spacem/components",
           "_tags": [
             "Theme"
           ],
           "_name": "footer1",
-          "_anchor": "footer1-1"
+          "_anchor": "footer1-1",
+          "_styles": {
+            "P": {
+              "color": "#ffffff"
+            },
+            "H4": {
+              "font-family": "'Lora', serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Lora:400,700"
+            }
+          }
         }
       ]
     }

@@ -1,5 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700);
 @import url(https://fonts.googleapis.com/css?family=Arapey:400,400i);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+
 
 
 
@@ -615,4 +619,16 @@ a:hover,
 }
 #menu2-0 .dropdown-item[aria-expanded="true"] {
   color: #222!important;
+}
+#header3-4 SPAN {
+  font-size: 100px;
+}
+#testimonials2-3 P {
+  font-family: 'Slabo 27px', serif;
+}
+#footer1-1 P {
+  color: #ffffff;
+}
+#footer1-1 H4 {
+  font-family: 'Lora', serif;
 }
