@@ -175,7 +175,7 @@
           },
           "title": "<br>AydınAh<span style=\"font-weight: normal;\">ş</span>ap",
           "text": "Ağacı sanata dönüştürüyoruz.<br>Mutfak, Banyo Dolapları, Portmanto, Sürgülü Dolap, Amerikan Kapı. Birinci sınıf kalite ile ihtiyaçlarınız doğrultusunda profesyonelce imal edilmektedir. Yüksek adetli taleplerden, özel butik ihtiyaçlara kadar çözümlerimizle yanınızdayız.",
-          "buttons": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-primary\" role=\"button\">Tıklayınız</a>",
+          "buttons": "<a data-app-btn=\"true\" href=\"index.html\" class=\"btn btn-primary\" role=\"button\">Tıklayınız</a>",
           "alias": "spacem/components",
           "_tags": [
             "Theme"
