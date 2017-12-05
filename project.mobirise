@@ -293,7 +293,7 @@
           },
           "adress": "Gümüşyaka Merkez<br>Silivri-İSTANBUL",
           "phone": "<a href=\"tel:+12 (3) 456 7890 123\" class=\"adr-link\"><b>Phone:</b> </a>&nbsp; &nbsp; 0 212 721 74 97",
-          "email": "<a href=\"mailto:sample@sample.com\" class=\"adr-link\"><b>Email:</b> </a>&nbsp; &nbsp;info@aydinahsap.com.tr",
+          "email": "<a href=\"mailto:sample@sample.com\" class=\"adr-link\"><b><br></b></a>Web: www.aydinahsap.com.tr<br><a href=\"mailto:sample@sample.com\" class=\"adr-link\"><b>Email:</b> </a>&nbsp; &nbsp;info@aydinahsap.com.tr",
           "titleNews": "HABERLER",
           "mediaNews1": {
             "image": {
@@ -302,7 +302,7 @@
               "active": true
             }
           },
-          "textNews1": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">15/05/17</span>",
+          "textNews1": "<a href=\"http://mobirise.com\">Yeni sitemiz yayında</a><span class=\"date\">15/05/17</span>",
           "mediaNews2": {
             "image": {
               "class": "resp-img",
@@ -310,12 +310,12 @@
               "active": true
             }
           },
-          "textNews2": "<a href=\"http://mobirise.com\">Pellentesque interdum imper diet nibh in porttitor</a><span class=\"date\">13/01/17</span>",
+          "textNews2": "<a href=\"http://mobirise.com\">Ücretsiz keşif kampanyası</a><span class=\"date\">13/01/17</span>",
           "titleTweet": "REFERANSLARIMIZDAN",
-          "tweet1": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
-          "tweet2": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
-          "tweet3": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
-          "tweet4": "<a href=\"http://mobirise.com\"><b>Alexander Sturg:</b> Curabitur augue elit, egestas vitae erat sed, in the maximus sollicitudin nisi.</a>",
+          "tweet1": "<a href=\"http://mobirise.com\"><b>Gümüşyaka Evleri:</b>&nbsp;</a>Gümüşyaka merkez",
+          "tweet2": "Gümüşyaka Evleri: Gümüşyaka merkez<br>",
+          "tweet3": "Gümüşyaka Evleri: Gümüşyaka merkez<br>",
+          "tweet4": "Gümüşyaka Evleri: Gümüşyaka merkez<br>",
           "titleInst": "FOTOĞRAFLAr",
           "mediaInst1": {
             "image": {
