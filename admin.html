@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Raw Product Data</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f9fa; color: #343a40; }
+        h1 { color: #0056b3; }
+        #raw-json-container {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Ensures long lines wrap */
+            word-wrap: break-word; /* Breaks long words/strings if necessary */
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .error-message { color: red; font-weight: bold; }
+        .loading-message { color: #0056b3; }
+        .nav-link { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .nav-link:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Raw Product Data (JSON)</h1>
+    <a href="index.html" class="nav-link">Back to Product Listing</a>
+    <pre id="raw-json-container"><p class="loading-message">Loading raw data...</p></pre>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('raw-json-container');
+
+            if (!container) {
+                console.error('Error: raw-json-container element not found.');
+                // Fallback if container is missing, though unlikely with static HTML
+                document.body.insertAdjacentHTML('afterbegin', '<p class="error-message">Critical error: Data display container not found.</p>');
+                return;
+            }
+
+            fetch('/api/products')
+                .then(response => {
+                    if (!response.ok) {
+                        // Try to get text for more detailed error from server if available
+                        return response.text().then(text => {
+                           throw new Error(`Network response was not ok: ${response.statusText} (status: ${response.status}). Server response: ${text}`);
+                        });
+                    }
+                    // First parse as JSON to ensure it's valid JSON from the API
+                    return response.json(); 
+                })
+                .then(jsonData => {
+                    // Then stringify the parsed JSON object for pretty printing
+                    // This fulfills the requirement of displaying the "raw JSON response text"
+                    // but ensures it's well-formed and pretty-printed.
+                    container.textContent = JSON.stringify(jsonData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing raw product data:', error);
+                    container.innerHTML = `<p class="error-message">Error loading raw data: ${error.message}.</p><p>Please ensure the API is running and check the console for more details.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

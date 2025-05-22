@@ -1,261 +1,94 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <!-- Site made with Mobirise Website Builder v4.5.2, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.5.2, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/to-logo-128x128-1.png" type="image/x-icon">
-  <meta name="description" content="">
-  <title>Home</title>
-  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/soundcloud-plugin/style.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/socicon/css/socicon.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise-slider/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        h1 { text-align: center; color: #0056b3; }
+        #products-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .product { border: 1px solid #ddd; background-color: #fff; padding: 20px; border-radius: 8px; width: 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+        .product h2 { margin-top: 0; color: #0056b3; font-size: 1.5em; }
+        .product .description { font-size: 0.9em; color: #666; margin-bottom: 10px; flex-grow: 1; }
+        .product .price { font-weight: bold; color: #007bff; font-size: 1.1em; text-align: right; }
+        .error-message { text-align: center; color: red; font-size: 1.2em; }
+        .loading-message { text-align: center; color: #0056b3; font-size: 1.2em; }
+    </style>
 </head>
 <body>
-<section class="menu2" id="menu2-0" data-rv-view="0">
+    <h1>Our Products</h1>
+    <div id="products-container">
+        <p class="loading-message">Loading products...</p>
+        <!-- Products will be loaded here by JavaScript -->
+    </div>
 
-    <nav class="navbar navbar-dropdown transparent navbar-fixed-top bg-color">
-        
+    <script>
+        function fetchAndDisplayProducts() {
+            const container = document.getElementById('products-container');
 
-            <div class="mbr-table mbr-table_top">
-            <div class="container container-wide container-table">
-                <div class="mbr-table-cell">
+            if (!container) {
+                console.error('Error: products-container element not found.');
+                document.body.innerHTML = '<p class="error-message">Critical error: Product display area not found.</p>';
+                return;
+            }
 
-                    <div class="top-menu-link"><a href="tel:+123 (456) 7890 123" class=""><span class="fa fa-phone mbr-iconfont mbr-iconfont-btn"></span> +90 212 721 74 97</a><a href="mailto:sample@sample.com" class=""><span class="fa fa-envelope-o mbr-iconfont mbr-iconfont-btn"></span>&nbsp;info@aydinahsap.com.tr</a></div>
+            // Display loading message before fetching
+            container.innerHTML = '<p class="loading-message">Refreshing products...</p>';
 
-                </div>
-                <div class="mbr-table-cell">
-
-                    <div class="top-menu-folow pull-xs-right"><a title="Twitter" target="_blank" href="https://twitter.com/mobirise" class=""><i class="icon-twitter"></i></a> <a title="Facebook" target="_blank" href="https://www.facebook.com/pages/Mobirise/1616226671953247" class=""><i class="icon-facebook"></i></a> <a title="Google+" target="_blank" href="https://plus.google.com/u/0/+Mobirise/posts"><i class="icon-googleplus"></i></a> <a title="Youtube" target="_blank" href="http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw"><i class="icon-dribbble"></i></a> </div>
-
-                </div>
-            </div>
-            </div>
-
-            <div class="mbr-table mbr-table_bottom">
-            <div class="container container-wide container-table">
-                <div class="mbr-table-cell logo">
-
-                    <div class="navbar-brand">
-                        <a href="index.html" class="navbar-logo"><img src="assets/images/onlinelogomaker-120417-1611-5596-132x128.png" alt="Mobilyada Estetik" title="Aydınahşap"></a>
-                        
-                    </div>
-
-                </div>
-                <div class="mbr-table-cell">
-
-                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav nav-list" id="exCollapsingNavbar"><li class="nav-item"><a class="nav-link link" href="index.html">ANASAYFA</a></li></ul>
-
-                    <button class="navbar-toggler pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                        <em></em>
-                    </button>
-
-                </div>
-            </div>
-            </div>
-
-        
-    </nav>
-
-</section>
-
-<section class="mbr-section--bg-adapted mbr-section--relative header header3 mbr-parallax-background mbr-after-navbar" id="header3-4" data-rv-view="2" style="background-image: url(assets/images/header5.jpg);">
-        <div class="mbr-overlay" style="opacity: 0.35; background-color: rgb(21, 21, 21);"></div>
-    <div id="contact-info" style="padding-top: 100px; padding-bottom: 100px;">
-        <div class="container">
-            <div class="row">
-                 
-                
-
-                
-
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mbr-table-cell-lg">
+            fetch('/api/products')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText} (status: ${response.status})`);
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    container.innerHTML = ''; // Clear loading message or previous content
                     
-                    <div class="row clear-md">
-                        
-                      <div class="col-xs-12">
-                         <div class="c-info">
-                            <h1 class="styled"><br>AydınAh<span style="font-weight: normal;">ş</span>ap</h1>
-                            <p class="mbr-section-subtitle">Ağacı sanata dönüştürüyoruz.<br>Mutfak, Banyo Dolapları, Portmanto, Sürgülü Dolap, Amerikan Kapı. Birinci sınıf kalite ile ihtiyaçlarınız doğrultusunda profesyonelce imal edilmektedir. Yüksek adetli taleplerden, özel butik ihtiyaçlara kadar çözümlerimizle yanınızdayız.</p>
+                    if (!products || products.length === 0) {
+                        container.innerHTML = '<p>No products available at this time.</p>';
+                        return;
+                    }
 
-                            <div><a href="index.html" class="btn btn-primary" role="button">Tıklayınız</a></div>
-                         </div> 
-                      </div>
+                    products.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.className = 'product';
 
-                    </div>
-                </div>
+                        const nameElement = document.createElement('h2');
+                        nameElement.textContent = product.name || 'Unnamed Product';
 
+                        const descriptionElement = document.createElement('p');
+                        descriptionElement.className = 'description';
+                        descriptionElement.textContent = product.description || 'No description available.';
 
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mbr-table-cell-lg image-size" style="width: 50%;">
-                      <figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/773RAZOq-ko?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></figure>
-                </div>
+                        const priceElement = document.createElement('p');
+                        priceElement.className = 'price';
+                        const price = parseFloat(product.price);
+                        priceElement.textContent = `Price: $${!isNaN(price) ? price.toFixed(2) : 'N/A'}`;
 
-            </div>
-        </div>
-    </div>
-</section>
+                        productDiv.appendChild(nameElement);
+                        productDiv.appendChild(descriptionElement);
+                        productDiv.appendChild(priceElement);
 
-<section class="mbr-slider mbr-section mbr-section__container carousel slide testimonials mbr-section-nopadding mbr-parallax-background" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="5000" id="testimonials2-3" data-rv-view="5" style="background-image: url(assets/images/testimonials2.jpg);">
-         <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(238, 238, 238);"></div>
-    <div class=" container boxed-slider" style="padding-top: 120px; padding-bottom: 120px;">
-        <div>
-            <div>
-                <ol class="carousel-indicators">
-                    <li data-app-prevent-settings="" data-target="#testimonials2-3" class="active" data-slide-to="0"></li><li data-app-prevent-settings="" data-target="#testimonials2-3" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#testimonials2-3" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="mbr-section mbr-section-hero carousel-item dark center active" data-bg-video-slide="false">
-                        <div class="mbr-table-cell">
-                            
-                            <div class="container-slide">
-                                <div class="row">
-                                    <div class="col-md-offset-1 col-md-10 col-xs-12 page_head">
-                                        <blockquote>
-                                            <p>Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir.</p>
-                                        </blockquote>
-                                        <h5 class="author">Ercan AYDIN</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="mbr-section mbr-section-hero carousel-item dark center" data-bg-video-slide="false">
-                        <div class="mbr-table-cell">
-                            
-                            <div class="container-slide">
-                                <div class="row">
-                                    <div class="col-md-offset-1 col-md-10 col-xs-12 page_head">
-                                        <blockquote>
-                                            <p>Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir.</p>
-                                        </blockquote>
-                                        <h5 class="author">Ercan AYDIN</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="mbr-section mbr-section-hero carousel-item dark center" data-bg-video-slide="false">
-                        <div class="mbr-table-cell">
-                            
-                            <div class="container-slide">
-                                <div class="row">
-                                    <div class="col-md-offset-1 col-md-10 col-xs-12 page_head">
-                                        <blockquote>
-                                            <p>Ulusal emlak geliştiricilerden, yerel bayilere tüm iş ortaklarımızın yanındayız. Zamanında teslimat ve yüksek malzeme kalitesi taviz vermediğimiz değerlerimizdir.</p>
-                                        </blockquote>
-                                        <h5 class="author">Ercan AYDIN</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        container.appendChild(productDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    container.innerHTML = `<p class="error-message">Error loading products: ${error.message}. Please try refreshing the page.</p>`;
+                });
+        }
 
-                <figure class="swiper-arrow-left swiper-arrow type-1" role="button" data-slide="prev" href="#testimonials2-3">
-                    <img alt="">
-                    <div class="mbr-slider-slide"></div>
-                </figure>
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayProducts);
 
-                 <figure class="swiper-arrow-right swiper-arrow type-1" role="button" data-slide="next" href="#testimonials2-3">
-                    <img alt="">
-                    <div class="mbr-slider-slide"></div>
-                </figure>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section mbr-section--no-padding" id="map1-2" data-rv-view="18">
-    <div class="mbr-map map-wrapper"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&amp;q=place_id:ChIJ7ZrRisEbtRQRS-C1yqRWzZY" allowfullscreen=""></iframe></div>
-</section>
-
-<section class="mbr-section--bg-adapted mbr-section--relative mbr-section" id="footer1-1" data-rv-view="20" style="background-color: rgb(33, 33, 33); padding-top: 0px; padding-bottom: 0px;">
-        
-        <footer class="footer">
-        <div class="content-wide">
-        <div class="container-wide container">
-            <div class="row">
-                 
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                        <figure class="footer-logo mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="assets/images/onlinelogomaker-120417-1611-5596-132x128.png"></figure>
-                        <p class="adress">Gümüşyaka Merkez<br>Silivri-İSTANBUL</p>
-                        <p><a href="tel:+12 (3) 456 7890 123" class="adr-link"><strong>Phone:</strong> </a>&nbsp; &nbsp; 0 212 721 74 97</p>
-                        <p><a href="mailto:sample@sample.com" class="adr-link"><strong><br></strong></a>Web: www.aydinahsap.com.tr<br><a href="mailto:sample@sample.com" class="adr-link"><strong>Email:</strong> </a>&nbsp; &nbsp;info@aydinahsap.com.tr</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                        <h4 class="title">HABERLER</h4>
-                        <div class="news-min">
-                            <div class="image"><img src="assets/images/foot-news-1.jpg" class="resp-img"></div>
-                            <p class="text"><a href="http://mobirise.com">Yeni sitemiz yayında</a><span class="date">15/05/17</span></p>
-                         </div>
-                         <div class="news-min">
-                            <div class="image"><img src="assets/images/foot-news-2.jpg" class="resp-img"></div>
-                            <p class="text"><a href="http://mobirise.com">Ücretsiz keşif kampanyası</a><span class="date">13/01/17</span></p>
-                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item tweets">
-                        <h4 class="title">REFERANSLARIMIZDAN</h4>
-                        <p><a href="http://mobirise.com"><strong>Gümüşyaka Evleri:</strong>&nbsp;</a>Gümüşyaka merkez</p>
-                        <p>Gümüşyaka Evleri: Gümüşyaka merkez<br></p>
-                        <p>Gümüşyaka Evleri: Gümüşyaka merkez<br></p>
-                        <p>Gümüşyaka Evleri: Gümüşyaka merkez<br></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                        <h4 class="title">FOTOĞRAFLAr</h4>
-                        <div class="instagram-item row">
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-1.jpg" class="resp-img"></div>
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-2.jpg" class="resp-img"></div>
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-3.jpg" class="resp-img"></div>
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-4.jpg" class="resp-img"></div>
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-5.jpg" class="resp-img"></div>
-                           <div class="image col-xs-6 col-md-4"><img src="assets/images/inst-6.jpg" class="resp-img"></div>
-                         </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="copyright">
-                <span>2017 Tüm hakları saklıdır. Tasarım ve kodlama &nbsp;<a href="http://semtasoft.com" target="_blank" class="text-warning">SEMTASOFT</a></span>
-            </div>
-
-        </div>
-    </div>
-    </footer>
-</section>
-
-
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
-  <script src="assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  <script src="assets/SliderPaginator/script.js"></script>
-  
-  
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.altKey && event.shiftKey && (event.key === 'E' || event.key === 'e')) {
+                event.preventDefault();
+                console.log('CTRL+ALT+SHIFT+E pressed, refreshing product data...');
+                fetchAndDisplayProducts();
+            }
+        });
+    </script>
 </body>
 </html>
