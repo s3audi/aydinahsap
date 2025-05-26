@@ -167,9 +167,7 @@ with tab1:
             st.markdown(f"{item['cuz_no']}. Cüz")
         with col4:
             if item["okunma"]:
-                if st.button("✅ EVET", key=f"hatim_{i}", type="primary"):
-                    st.session_state.hatim_verileri[i]["okunma"] = False
-                    st.rerun()
+                st.markdown('<span class="btn-evet">✅ EVET</span>', unsafe_allow_html=True)
             else:
                 if st.button("❌ HAYIR", key=f"hatim_{i}", type="secondary"):
                     st.session_state.hatim_verileri[i]["okunma"] = True
@@ -222,9 +220,7 @@ with tab2:
             st.markdown(f"{item['sira_no']}. Sıra")
         with col4:
             if item["okunma"]:
-                if st.button("✅ EVET", key=f"yasin_{i}", type="primary"):
-                    st.session_state.yasin_verileri[i]["okunma"] = False
-                    st.rerun()
+                st.markdown('<span class="btn-evet">✅ EVET</span>', unsafe_allow_html=True)
             else:
                 if st.button("❌ HAYIR", key=f"yasin_{i}", type="secondary"):
                     st.session_state.yasin_verileri[i]["okunma"] = True
@@ -249,9 +245,9 @@ with st.sidebar:
         st.session_state.yasin_verileri = yasin_verileri
         st.rerun()
     
-    # Veri export/import
+    # Veri export
     st.markdown("---")
-    st.markdown("### 📥📤 Veri Yönetimi")
+    st.markdown("### 📥 Veri Export")
     
     # JSON export
     export_data = {
@@ -261,57 +257,11 @@ with st.sidebar:
     }
     
     st.download_button(
-        label="📤 JSON olarak İndir",
+        label="📄 JSON olarak İndir",
         data=json.dumps(export_data, ensure_ascii=False, indent=2),
         file_name=f"hatim_yasin_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
         mime="application/json"
     )
-    
-    # JSON import
-    st.markdown("**📥 JSON Dosyası Yükle:**")
-    uploaded_file = st.file_uploader(
-        "Daha önce kaydettiğiniz JSON dosyasını seçin",
-        type=['json'],
-        help="Export ettiğiniz JSON dosyasını buraya yükleyerek verileri geri yükleyebilirsiniz."
-    )
-    
-    if uploaded_file is not None:
-        try:
-            # JSON dosyasını oku
-            import_data = json.load(uploaded_file)
-            
-            # Veri doğrulama
-            if "hatim_verileri" in import_data and "yasin_verileri" in import_data:
-                # Önizleme
-                st.success("✅ Dosya başarıyla okundu!")
-                
-                if "export_tarihi" in import_data:
-                    st.info(f"📅 Export tarihi: {import_data['export_tarihi']}")
-                
-                # İstatistikler
-                imported_hatim_count = sum(1 for item in import_data["hatim_verileri"] if item.get("okunma", False))
-                imported_yasin_count = sum(1 for item in import_data["yasin_verileri"] if item.get("okunma", False))
-                
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.metric("📖 Hatim (EVET)", f"{imported_hatim_count}/30")
-                with col2:
-                    st.metric("📿 Yasin (EVET)", f"{imported_yasin_count}/40")
-                
-                # Import butonu
-                if st.button("🔄 Verileri Yükle", type="primary", key="import_data"):
-                    st.session_state.hatim_verileri = import_data["hatim_verileri"]
-                    st.session_state.yasin_verileri = import_data["yasin_verileri"]
-                    st.success("✅ Veriler başarıyla yüklendi!")
-                    st.rerun()
-                    
-            else:
-                st.error("❌ Geçersiz JSON formatı! Lütfen doğru dosyayı seçin.")
-                
-        except json.JSONDecodeError:
-            st.error("❌ JSON dosyası okunamadı! Dosya bozuk olabilir.")
-        except Exception as e:
-            st.error(f"❌ Bir hata oluştu: {str(e)}")
 
 # Footer
 st.markdown("---")
