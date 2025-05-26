@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import json
-import os
 
 # Sayfa konfigürasyonu
 st.set_page_config(
@@ -11,15 +10,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-
-# Deployment için cache temizleme
-@st.cache_data(ttl=3600)  # 1 saatte bir cache temizle
-def load_app_config():
-    return {
-        "app_version": "1.0.0",
-        "last_updated": datetime.now().strftime("%Y-%m-%d"),
-        "environment": os.getenv("STREAMLIT_ENV", "production")
-    }
 
 # CSS Styling
 st.markdown("""
@@ -265,10 +255,9 @@ with st.sidebar:
 
 # Footer
 st.markdown("---")
-config = load_app_config()
-st.markdown(f"""
+st.markdown("""
 <div style="text-align: center; color: #6b7280; padding: 1rem;">
     🌧️ Hatim Yağmuru - Bereket ve rahmet dolu okumalar<br>
-    <small>v{config['app_version']} | Son güncelleme: {config['last_updated']} | Made with ❤️ using Streamlit</small>
+    <small>Made with ❤️ using Streamlit</small>
 </div>
 """, unsafe_allow_html=True)
