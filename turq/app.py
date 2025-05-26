@@ -6,7 +6,7 @@ from generate_mock_data import get_mock_products
 app = Flask(__name__)
 CORS(app)
 
-PRODUCTS_FILE = "/home/s3audi/mysite/products.json"
+# PRODUCTS_FILE = "/home/s3audi/mysite/products.json"
 
 def load_products():
     try:

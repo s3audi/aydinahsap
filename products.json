@@ -1,0 +1,44 @@
+[
+  {
+    "description": "A high-performance laptop suitable for all your needs.",
+    "id": 1,
+    "name": "LaptopccccA",
+    "price": 1200
+  },
+  {
+    "description": "A ceramic coffee mug to keep your beverages warm.",
+    "id": 2,
+    "name": "Coffee Mug",
+    "price": 15.99
+  },
+  {
+    "description": "Ergonomic wireless mouse with long battery life.",
+    "id": 3,
+    "name": "Wireless Mouse",
+    "price": 25.5
+  },
+  {
+    "description": "Mechanical keyboard with RGB lighting.",
+    "id": 4,
+    "name": "Keyboard",
+    "price": 75
+  },
+  {
+    "description": "HD webcam for video conferencing.",
+    "id": 5,
+    "name": "Webcam",
+    "price": 45
+  },
+  {
+    "description": "Adjustable LED desk lamp.",
+    "id": 6,
+    "name": "Desk Lamp",
+    "price": 30.25
+  },
+  {
+    "description": "A5 lined notebook for your notes and ideas.",
+    "id": 7,
+    "name": "Notebook",
+    "price": 7.99
+  }
+]
