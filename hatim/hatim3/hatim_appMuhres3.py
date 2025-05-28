@@ -59,7 +59,7 @@ df_hatim_cuz = get_cuz_df(all_data["hatim_cuz_donemleri"])
 
 # --- Streamlit Uygulaması ---
 
-st.title("🌧️ Hatim Yağmuru")
+st.title("🌧️ Hatim Yağmuruuu")
 st.markdown("---")
 
 # --- Yedekleme ve Geri Yükleme ---
