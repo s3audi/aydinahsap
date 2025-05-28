@@ -122,7 +122,7 @@ with col_yasin:
         hayir_img_url = "https://cdn-icons-png.flaticon.com/512/753/753345.png"
 
         for idx, row in df_display_yasin.iterrows():
-            # Sütun oranlarını mobilde daha iyi görünmesi için ayarla
+            # Sütun oranlarını mobilde de iyi görünmesi için ayarla
             col1, col2, col3, col4 = st.columns([2, 4, 3, 1])
             col1.write(row["Cüz No"])
             col2.write(row["Okuyan"])
@@ -130,31 +130,17 @@ with col_yasin:
             btn_text = "Evet" if durum == "Evet" else "Hayır"
             img_url = evet_img_url if durum == "Evet" else hayir_img_url
             btn_key = f"yasin_{selected_yasin_donem}_{row['Cüz No']}"
-            # Buton ve imaj aynı satırda, yan yana
-            with col3:
-                st.write(
-                    f"""
-                    <div style="display: flex; align-items: center; gap: 0.5em;">
-                        <form action="" method="post" style="margin:0;">
-                            <button type="submit" style="background-color: #22c55e if durum == 'Evet' else #fca5a5; color: white; border: none; border-radius: 5px; padding: 0.3em 1em; font-weight: bold;">
-                                {btn_text}
-                            </button>
-                        </form>
-                        <img src="{img_url}" width="28" style="margin-left:4px;"/>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-                # Tıklama için yine Streamlit butonunu kullan
-                if st.button(" ", key=btn_key, help="Durumu değiştir"):
-                    for i, donem in enumerate(all_data["hatim_yasin_donemleri"]):
-                        if donem["Hatim Dönem"] == selected_yasin_donem:
-                            for j, cuz in enumerate(donem["Cüzler"]):
-                                if cuz["Cüz No"] == row["Cüz No"]:
-                                    yeni_durum = "Hayır" if durum == "Evet" else "Evet"
-                                    all_data["hatim_yasin_donemleri"][i]["Cüzler"][j]["DURUM"] = yeni_durum
-                                    save_data(all_data)
-                                    st.rerun()
+            # Sadece Streamlit butonu ve hemen yanında imaj
+            if col3.button(btn_text, key=btn_key, help="Durumu değiştir"):
+                for i, donem in enumerate(all_data["hatim_yasin_donemleri"]):
+                    if donem["Hatim Dönem"] == selected_yasin_donem:
+                        for j, cuz in enumerate(donem["Cüzler"]):
+                            if cuz["Cüz No"] == row["Cüz No"]:
+                                yeni_durum = "Hayır" if durum == "Evet" else "Evet"
+                                all_data["hatim_yasin_donemleri"][i]["Cüzler"][j]["DURUM"] = yeni_durum
+                                save_data(all_data)
+                                st.rerun()
+            col4.markdown(f'<img src="{img_url}" width="28" style="margin-top:6px;"/>', unsafe_allow_html=True)
     # col4 boş bırakılabilir veya kaldırılabilir
 
 # --- Hatim Cüz Dönemleri (Sağ Sütun) ---
