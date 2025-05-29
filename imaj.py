@@ -38,31 +38,35 @@ def connect_to_airtable(api_key, base_id, table_name):
     except Exception as e:
         raise ValueError(f"Error connecting to Airtable: {e}")
 
-# --- New function adapted from fetch_airtable_data ---
-def fetch_all_image_urls(table):
+# --- Refactored function to fetch record details including specific fields and one image URL ---
+def fetch_record_details(table):
     """
-    Fetches all records from an Airtable table and extracts all image URLs 
-    from 'Attachments' fields.
+    Fetches records from an Airtable table that have at least one image in 'Attachments',
+    and extracts the first image URL along with specified text fields.
 
     Args:
         table: An Airtable table object.
 
     Returns:
-        A list of all found image URL strings.
+        A list of dictionaries, where each dictionary contains details for a record:
+        {'image_url': str, 'cuz_no': any, 'okunan': any, 'okuyan': any, 'durum': any}.
+        Returns an empty list if no records with images are found or in case of error.
     
     Raises:
         ValueError: If the table object is invalid or data fetching fails.
     """
     if not table:
-        raise ValueError("Invalid table object provided for fetching image URLs.")
+        raise ValueError("Invalid table object provided for fetching record details.")
     
-    all_image_urls = []
+    records_with_details = []
     try:
         raw_records = table.get_all()
         for record in raw_records:
             fields = record.get('fields', {})
+            
+            # Extract the first image URL
+            first_image_url = None
             attachments_field = fields.get('Attachments')
-
             if attachments_field and isinstance(attachments_field, list):
                 for attachment in attachments_field:
                     if isinstance(attachment, dict) and \
@@ -80,40 +84,72 @@ def fetch_all_image_urls(table):
                                 actual_url_str = potential_url_source['src']
                         
                         if actual_url_str:
-                            all_image_urls.append(actual_url_str)
+                            first_image_url = actual_url_str
+                            break # Found the first image, stop looking for this record
+            
+            # If no image URL was found for this record, skip it
+            if not first_image_url:
+                continue
+                
+            # Extract text fields
+            cuz_no = fields.get('Cüz no')
+            okunan = fields.get('Okunan')
+            okuyan = fields.get('Okuyan')
+            durum = fields.get('Durum')
+            
+            details = {
+                'image_url': first_image_url,
+                'cuz_no': cuz_no,
+                'okunan': okunan,
+                'okuyan': okuyan,
+                'durum': durum
+            }
+            records_with_details.append(details)
         
-        return all_image_urls
+        return records_with_details
     except Exception as e:
-        raise ValueError(f"Error fetching or processing image URLs from Airtable: {e}")
+        raise ValueError(f"Error fetching or processing record details from Airtable: {e}")
 
 # --- Main Streamlit Application UI ---
 def main_app():
     """
     Main function to run the Imaj Streamlit application.
-    Connects to Airtable, fetches all image URLs, and displays them.
+    Connects to Airtable, fetches record details (image and specific fields), and displays them.
     """
-    st.set_page_config(page_title="Imaj - Airtable Image Gallery", layout="wide")
-    st.title("🖼️ Imaj - Airtable Image Gallery")
+    st.set_page_config(page_title="Imaj - Airtable Image Gallery with Details", layout="wide")
+    st.title("🖼️ Imaj - Airtable Image Gallery with Details")
 
     try:
-        st.write("Connecting to Airtable...")
+        # The connection and fetching messages can be removed for a cleaner UI once tested
+        # st.write("Connecting to Airtable...") 
         airtable_instance = connect_to_airtable(AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME)
-        st.success(f"Successfully connected to Airtable base '{AIRTABLE_BASE_ID}', table '{AIRTABLE_TABLE_NAME}'.")
+        # st.success(f"Successfully connected to Airtable base '{AIRTABLE_BASE_ID}', table '{AIRTABLE_TABLE_NAME}'.")
         
-        st.write("Fetching all image URLs from the 'Attachments' field...")
-        image_urls = fetch_all_image_urls(airtable_instance)
+        # st.write("Fetching record details (image and specific fields)...")
+        record_details_list = fetch_record_details(airtable_instance)
         
-        if image_urls:
-            st.success(f"Found {len(image_urls)} image(s). Displaying gallery:")
-            # Display images in columns for a gallery-like layout
-            # Adjust the number of columns as desired
-            num_columns = 4 
+        if record_details_list:
+            st.info(f"Found {len(record_details_list)} record(s) with images. Displaying gallery:")
+            
+            num_columns = 2  # Using 2 columns as requested
             cols = st.columns(num_columns)
-            for i, url in enumerate(image_urls):
+            for i, details in enumerate(record_details_list):
                 with cols[i % num_columns]:
-                    st.image(url, caption=f"Image {i+1}", use_column_width='always') # 'always' is better for responsive columns
+                    # Prepare caption text, handling None values
+                    cuz_no_str = details.get('cuz_no', 'N/A')
+                    okunan_str = details.get('okunan', 'N/A')
+                    okuyan_str = details.get('okuyan', 'N/A')
+                    durum_str = details.get('durum', 'N/A')
+                    
+                    caption_text = (
+                        f"Cüz no: {cuz_no_str} | Okunan: {okunan_str} | "
+                        f"Okuyan: {okuyan_str} | Durum: {durum_str}"
+                    )
+                    
+                    st.image(details['image_url'], caption=caption_text, width=500)
+                    # The markdown display from previous step is removed as per new caption requirement
         else:
-            st.info("No images found in the 'Attachments' column of your Airtable table, or none of the attachments were valid image types with URLs.")
+            st.info("No records with images and specified details found.") # Message updated as per requirement
 
     except ValueError as ve:
         st.error(f"Application Error: {ve}")
