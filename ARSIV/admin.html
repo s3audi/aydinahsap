@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Raw Product Data</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f9fa; color: #343a40; }
+        h1 { color: #0056b3; }
+        #raw-json-container {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Ensures long lines wrap */
+            word-wrap: break-word; /* Breaks long words/strings if necessary */
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .error-message { color: red; font-weight: bold; }
+        .loading-message { color: #0056b3; }
+        .nav-link { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .nav-link:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Raw Product Data (JSON)</h1>
+    <a href="index.html" class="nav-link">Back to Product Listing</a>
+    <div id="editor-container">
+        <textarea id="json-editor" style="width:100%;height:300px;font-family:monospace;font-size:1em;"></textarea>
+        <button id="save-btn" style="margin-top:10px;padding:8px 16px;">Kaydet</button>
+        <div id="save-status"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editor = document.getElementById('json-editor');
+            const saveBtn = document.getElementById('save-btn');
+            const statusDiv = document.getElementById('save-status');
+
+            // JSON'u yükle ve textarea'ya yaz
+            fetch('http://127.0.0.1:5000/api/products')
+                .then(response => response.json())
+                .then(jsonData => {
+                    editor.value = JSON.stringify(jsonData, null, 2);
+                })
+                .catch(error => {
+                    editor.value = '';
+                    statusDiv.innerHTML = `<span class="error-message">Error loading data: ${error.message}</span>`;
+                });
+
+            // Kaydet butonuna tıklanınca
+            saveBtn.addEventListener('click', function() {
+                let newJson;
+                try {
+                    newJson = JSON.parse(editor.value);
+                } catch (e) {
+                    statusDiv.innerHTML = `<span class="error-message">Geçersiz JSON formatı!</span>`;
+                    return;
+                }
+                fetch('http://127.0.0.1:5000/api/products', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newJson)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Kaydetme başarısız!');
+                    return response.json();
+                })
+                .then(data => {
+                    statusDiv.innerHTML = `<span style="color:green;">Başarıyla kaydedildi!</span>`;
+                })
+                .catch(error => {
+                    statusDiv.innerHTML = `<span class="error-message">Hata: ${error.message}</span>`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

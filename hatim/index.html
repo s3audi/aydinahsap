@@ -1,0 +1,334 @@
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, Calendar, BookOpen } from 'lucide-react';
+
+const HatimTakipApp = () => {
+  // Örnek veri yapısı
+  const [yasinDonemleri] = useState([
+    { id: 1, tarih: '16 Mayıs 2025', haftalikSayi: 36, toplamSayi: 226 },
+    { id: 2, tarih: '9 Mayıs 2025', haftalikSayi: 35, toplamSayi: 190 },
+    { id: 3, tarih: '2 Mayıs 2025', haftalikSayi: 34, toplamSayi: 155 }
+  ]);
+
+  const [hatimDonemleri] = useState([
+    { id: 1, ay: 'Mayıs 2025' },
+    { id: 2, ay: 'Nisan 2025' },
+    { id: 3, ay: 'Mart 2025' }
+  ]);
+
+  // Hatim verileri (30 cüz)
+  const [hatimVerileri, setHatimVerileri] = useState([
+    { cuzNo: 1, okuyan: 'Tamer', okunma: true },
+    { cuzNo: 2, okuyan: 'Emre', okunma: false },
+    { cuzNo: 3, okuyan: 'Gülnhal', okunma: true },
+    { cuzNo: 4, okuyan: 'Tamer', okunma: false },
+    { cuzNo: 5, okuyan: 'Emre', okunma: true },
+    { cuzNo: 6, okuyan: 'Gülnhal', okunma: false },
+    { cuzNo: 7, okuyan: 'Tamer', okunma: true },
+    { cuzNo: 8, okuyan: 'Emre', okunma: false },
+    { cuzNo: 9, okuyan: 'Gülnhal', okunma: true },
+    { cuzNo: 10, okuyan: 'Tamer', okunma: false },
+    { cuzNo: 11, okuyan: 'Emre', okunma: true },
+    { cuzNo: 12, okuyan: 'Gülnhal', okunma: false },
+    { cuzNo: 13, okuyan: 'Tamer', okunma: true },
+    { cuzNo: 14, okuyan: 'Emre', okunma: false },
+    { cuzNo: 15, okuyan: 'Gülnhal', okunma: true },
+    { cuzNo: 16, okuyan: 'Tamer', okunma: false },
+    { cuzNo: 17, okuyan: 'Emre', okunma: true },
+    { cuzNo: 18, okuyan: 'Gülnhal', okunma: false },
+    { cuzNo: 19, okuyan: 'Tamer', okunma: true },
+    { cuzNo: 20, okuyan: 'Emre', okunma: false },
+    { cuzNo: 21, okuyan: 'Gülnhal', okunma: true },
+    { cuzNo: 22, okuyan: 'Tamer', okunma: false },
+    { cuzNo: 23, okuyan: 'Emre', okunma: true },
+    { cuzNo: 24, okuyan: 'Gülnhal', okunma: false },
+    { cuzNo: 25, okuyan: 'Tamer', okunma: true },
+    { cuzNo: 26, okuyan: 'Emre', okunma: false },
+    { cuzNo: 27, okuyan: 'Gülnhal', okunma: true },
+    { cuzNo: 28, okuyan: 'Tamer', okunma: false },
+    { cuzNo: 29, okuyan: 'Emre', okunma: true },
+    { cuzNo: 30, okuyan: 'Gülnhal', okunma: false }
+  ]);
+
+  // Yasin verileri (40 kişi)
+  const [yasinVerileri, setYasinVerileri] = useState([
+    { siraNo: 1, okuyan: 'Yunus Emre', okunma: true },
+    { siraNo: 2, okuyan: 'Tamer', okunma: false },
+    { siraNo: 3, okuyan: 'Sabahat', okunma: true },
+    { siraNo: 4, okuyan: 'Emre', okunma: false },
+    { siraNo: 5, okuyan: 'Hacer', okunma: true },
+    { siraNo: 6, okuyan: 'Fatih', okunma: false },
+    { siraNo: 7, okuyan: 'Özgür Yaşam', okunma: true },
+    { siraNo: 8, okuyan: 'Dural', okunma: false },
+    { siraNo: 9, okuyan: 'Esra', okunma: true },
+    { siraNo: 10, okuyan: 'Merve', okunma: false },
+    { siraNo: 11, okuyan: 'Serap', okunma: true },
+    { siraNo: 12, okuyan: 'Rümeysa', okunma: false },
+    { siraNo: 13, okuyan: 'Nursel', okunma: true },
+    { siraNo: 14, okuyan: 'Zekeriya', okunma: false },
+    { siraNo: 15, okuyan: 'Mustafa', okunma: true },
+    { siraNo: 16, okuyan: 'Ünzile', okunma: false },
+    { siraNo: 17, okuyan: 'Hikmet', okunma: true },
+    { siraNo: 18, okuyan: 'Esra Gelin', okunma: false },
+    { siraNo: 19, okuyan: 'Ahmet', okunma: true },
+    { siraNo: 20, okuyan: 'Ayşegül', okunma: false },
+    { siraNo: 21, okuyan: 'Sevgi', okunma: true },
+    { siraNo: 22, okuyan: 'Talha', okunma: false },
+    { siraNo: 23, okuyan: 'Büşra', okunma: true },
+    { siraNo: 24, okuyan: 'Osman', okunma: false },
+    { siraNo: 25, okuyan: 'Zeynep', okunma: true },
+    { siraNo: 26, okuyan: 'Tuğba', okunma: false },
+    { siraNo: 27, okuyan: 'Esin', okunma: true },
+    { siraNo: 28, okuyan: 'Fikret', okunma: false },
+    { siraNo: 29, okuyan: 'Yusuf', okunma: true },
+    { siraNo: 30, okuyan: 'Şeyma', okunma: false },
+    { siraNo: 31, okuyan: 'Burak Enes', okunma: true },
+    { siraNo: 32, okuyan: 'Dürnev', okunma: false },
+    { siraNo: 33, okuyan: 'İsmail', okunma: true },
+    { siraNo: 34, okuyan: 'Havva', okunma: false },
+    { siraNo: 35, okuyan: 'Eren', okunma: true },
+    { siraNo: 36, okuyan: 'Ayşe', okunma: false },
+    { siraNo: 37, okuyan: 'Melih', okunma: true },
+    { siraNo: 38, okuyan: 'Yiğit', okunma: false },
+    { siraNo: 39, okuyan: 'Saniye', okunma: true },
+    { siraNo: 40, okuyan: 'Elfize', okunma: false }
+  ]);
+
+  const [seciliYasinDonem, setSeciliYasinDonem] = useState(yasinDonemleri[0]);
+  const [seciliHatimDonem, setSeciliHatimDonem] = useState(hatimDonemleri[0]);
+  const [aktifSekme, setAktifSekme] = useState('hatim');
+  const [yasinDropdownAcik, setYasinDropdownAcik] = useState(false);
+  const [hatimDropdownAcik, setHatimDropdownAcik] = useState(false);
+
+  const hatimDurumDegistir = (index) => {
+    const yeniVeriler = [...hatimVerileri];
+    if (!yeniVeriler[index].okunma) {
+      yeniVeriler[index].okunma = true;
+      setHatimVerileri(yeniVeriler);
+    }
+  };
+
+  const yasinDurumDegistir = (index) => {
+    const yeniVeriler = [...yasinVerileri];
+    if (!yeniVeriler[index].okunma) {
+      yeniVeriler[index].okunma = true;
+      setYasinVerileri(yeniVeriler);
+    }
+  };
+
+  const tamamlanmisHatim = hatimVerileri.filter(item => item.okunma).length;
+  const tamamlanmisYasin = yasinVerileri.filter(item => item.okunma).length;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
+      <div className="max-w-md mx-auto bg-white shadow-xl rounded-t-3xl min-h-screen">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-6 rounded-t-3xl">
+          <h1 className="text-2xl font-bold text-center mb-2">🌧️ Hatim Yağmuru</h1>
+          <div className="text-center text-emerald-100 text-sm">
+            Bereket ve rahmet dolu okumalar
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex bg-white border-b">
+          <button
+            onClick={() => setAktifSekme('hatim')}
+            className={`flex-1 py-4 px-2 text-center font-semibold ${
+              aktifSekme === 'hatim'
+                ? 'text-emerald-600 border-b-2 border-emerald-600'
+                : 'text-gray-500'
+            }`}
+          >
+            <BookOpen className="w-5 h-5 inline-block mr-2" />
+            Hatim Cüz
+          </button>
+          <button
+            onClick={() => setAktifSekme('yasin')}
+            className={`flex-1 py-4 px-2 text-center font-semibold ${
+              aktifSekme === 'yasin'
+                ? 'text-emerald-600 border-b-2 border-emerald-600'
+                : 'text-gray-500'
+            }`}
+          >
+            <Calendar className="w-5 h-5 inline-block mr-2" />
+            Yasin
+          </button>
+        </div>
+
+        <div className="p-4">
+          {aktifSekme === 'hatim' && (
+            <>
+              {/* Hatim Dönem Seçici */}
+              <div className="mb-6">
+                <div className="relative">
+                  <button
+                    onClick={() => setHatimDropdownAcik(!hatimDropdownAcik)}
+                    className="w-full bg-white border-2 border-emerald-200 rounded-xl p-4 flex justify-between items-center hover:border-emerald-400 transition-all"
+                  >
+                    <div>
+                      <div className="text-sm text-gray-600">Hatim Cüz Dönem</div>
+                      <div className="font-semibold text-emerald-700">{seciliHatimDonem.ay}</div>
+                    </div>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${hatimDropdownAcik ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {hatimDropdownAcik && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-10">
+                      {hatimDonemleri.map((donem) => (
+                        <button
+                          key={donem.id}
+                          onClick={() => {
+                            setSeciliHatimDonem(donem);
+                            setHatimDropdownAcik(false);
+                          }}
+                          className="w-full text-left p-3 hover:bg-emerald-50 first:rounded-t-xl last:rounded-b-xl"
+                        >
+                          {donem.ay}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* İlerleme Durumu */}
+              <div className="bg-emerald-50 rounded-xl p-4 mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-emerald-700 font-semibold">İlerleme Durumu</span>
+                  <span className="text-emerald-800 font-bold">{tamamlanmisHatim}/30</span>
+                </div>
+                <div className="w-full bg-emerald-200 rounded-full h-3">
+                  <div 
+                    className="bg-gradient-to-r from-emerald-500 to-teal-500 h-3 rounded-full transition-all duration-500"
+                    style={{ width: `${(tamamlanmisHatim / 30) * 100}%` }}
+                  ></div>
+                </div>
+                <div className="text-right text-sm text-emerald-600 mt-1">
+                  %{Math.round((tamamlanmisHatim / 30) * 100)} tamamlandı
+                </div>
+              </div>
+
+              {/* Hatim Listesi */}
+              <div className="space-y-3">
+                {hatimVerileri.map((item, index) => (
+                  <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 flex justify-between items-center hover:shadow-md transition-all">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <span className="font-bold text-emerald-700">{item.cuzNo}</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-800">{item.okuyan}</div>
+                        <div className="text-sm text-gray-500">{item.cuzNo}. Cüz</div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => hatimDurumDegistir(index)}
+                      disabled={item.okunma}
+                      className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                        item.okunma
+                          ? 'bg-emerald-500 text-white cursor-default'
+                          : 'bg-red-100 text-red-600 hover:bg-red-200 active:scale-95'
+                      }`}
+                    >
+                      {item.okunma ? 'EVET' : 'HAYIR'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {aktifSekme === 'yasin' && (
+            <>
+              {/* Yasin Dönem Seçici */}
+              <div className="mb-6">
+                <div className="relative">
+                  <button
+                    onClick={() => setYasinDropdownAcik(!yasinDropdownAcik)}
+                    className="w-full bg-white border-2 border-emerald-200 rounded-xl p-4 flex justify-between items-center hover:border-emerald-400 transition-all"
+                  >
+                    <div>
+                      <div className="text-sm text-gray-600">Yasin Dönem</div>
+                      <div className="font-semibold text-emerald-700">{seciliYasinDonem.tarih}</div>
+                      <div className="text-xs text-gray-500">
+                        Haftalık: {seciliYasinDonem.haftalikSayi} | Toplam: {seciliYasinDonem.toplamSayi}
+                      </div>
+                    </div>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${yasinDropdownAcik ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {yasinDropdownAcik && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-10">
+                      {yasinDonemleri.map((donem) => (
+                        <button
+                          key={donem.id}
+                          onClick={() => {
+                            setSeciliYasinDonem(donem);
+                            setYasinDropdownAcik(false);
+                          }}
+                          className="w-full text-left p-3 hover:bg-emerald-50 first:rounded-t-xl last:rounded-b-xl"
+                        >
+                          <div className="font-semibold">{donem.tarih}</div>
+                          <div className="text-sm text-gray-500">
+                            Haftalık: {donem.haftalikSayi} | Toplam: {donem.toplamSayi}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* İlerleme Durumu */}
+              <div className="bg-emerald-50 rounded-xl p-4 mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-emerald-700 font-semibold">İlerleme Durumu</span>
+                  <span className="text-emerald-800 font-bold">{tamamlanmisYasin}/40</span>
+                </div>
+                <div className="w-full bg-emerald-200 rounded-full h-3">
+                  <div 
+                    className="bg-gradient-to-r from-emerald-500 to-teal-500 h-3 rounded-full transition-all duration-500"
+                    style={{ width: `${(tamamlanmisYasin / 40) * 100}%` }}
+                  ></div>
+                </div>
+                <div className="text-right text-sm text-emerald-600 mt-1">
+                  %{Math.round((tamamlanmisYasin / 40) * 100)} tamamlandı
+                </div>
+              </div>
+
+              {/* Yasin Listesi */}
+              <div className="space-y-3">
+                {yasinVerileri.map((item, index) => (
+                  <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 flex justify-between items-center hover:shadow-md transition-all">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <span className="font-bold text-emerald-700">{item.siraNo}</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-800">{item.okuyan}</div>
+                        <div className="text-sm text-gray-500">{item.siraNo}. Sıra</div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => yasinDurumDegistir(index)}
+                      disabled={item.okunma}
+                      className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                        item.okunma
+                          ? 'bg-emerald-500 text-white cursor-default'
+                          : 'bg-red-100 text-red-600 hover:bg-red-200 active:scale-95'
+                      }`}
+                    >
+                      {item.okunma ? 'EVET' : 'HAYIR'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HatimTakipApp;

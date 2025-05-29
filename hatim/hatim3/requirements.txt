@@ -1,0 +1,9 @@
+streamlit
+pandas
+plotly
+
+# UNUTMA
+# pip install streamlit-plotly-events
+# Muhre2 çok iyi çalıştı
+# İsimleri bir numara kaydırarak Temmuz 2025 listesi ekle
+# Muhres3 efsane oldu
