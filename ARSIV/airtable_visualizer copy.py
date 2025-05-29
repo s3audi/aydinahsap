@@ -60,18 +60,6 @@ def color_evet_hayir(val):
         return "background-color: #ef4444; color: white;"
     return ""
 
-def get_first_image_url(images):
-    # Eğer doğrudan dict ise
-    if isinstance(images, dict) and "url" in images:
-        return images["url"]
-    # Eğer liste ise ve ilk eleman dict ise
-    if isinstance(images, list) and images and isinstance(images[0], dict):
-        return images[0].get("url", "")
-    # Eğer doğrudan string ise
-    elif isinstance(images, str) and images.startswith("http"):
-        return images
-    return ""
-
 def main_app():
     """
     Main function to run the Streamlit application.
@@ -116,15 +104,6 @@ def main_app():
             st.info("No data found in the table or the 'fields' key was missing in records.")
             st.dataframe([]) # Show an empty dataframe
 
-        # Örneğin görsel alanının adı "Fotoğraf" ise:
-        image_column = "Fotoğraf"  # Airtable'daki görsel alanının adı
-
-        if image_column in df.columns:
-            df["Görsel"] = df[image_column].apply(get_first_image_url)
-            df["Görsel"] = df["Görsel"].apply(lambda url: f'<img src="{url}" width="60">' if url else "")
-            st.write(df.to_html(escape=False), unsafe_allow_html=True)
-        else:
-            st.dataframe(df)
     except ValueError as ve: # Catch custom ValueErrors from our functions
         st.error(f"An error occurred: {ve}")
     except Exception as e: # Catch any other unexpected errors
